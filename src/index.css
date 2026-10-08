@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+
+/* Device Lab: dark-first navy ink, Flutter sky-blue accent. */
+:root,
+[data-theme='dark'] {
+  --c-bg: #0a0f1a;
+  --c-surface: #111827;
+  --c-line: #1f2a3c;
+  --c-ink: #e8eef7;
+  --c-muted: #8392a9;
+  --c-accent: #54c5f8;
+  --c-accent-ink: #06243a;
+  --c-ok: #4ade80;
+  --c-warn: #f5b94a;
+  color-scheme: dark;
+}
+[data-theme='light'] {
+  --c-bg: #eef2f7;
+  --c-surface: #ffffff;
+  --c-line: #d5dde8;
+  --c-ink: #0b1424;
+  --c-muted: #56657c;
+  --c-accent: #0468d7;
+  --c-accent-ink: #ffffff;
+  --c-ok: #15803d;
+  --c-warn: #b45309;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-line: var(--c-line);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-accent-ink: var(--c-accent-ink);
+  --color-ok: var(--c-ok);
+  --color-warn: var(--c-warn);
+  --font-display: 'Bricolage Grotesque', 'Avenir Next', system-ui, sans-serif;
+  --font-sans: 'Geist', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+::selection {
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+@layer components {
+  .label {
+    @apply font-mono text-xs font-semibold tracking-[0.12em] uppercase text-muted;
+  }
+  .pill {
+    @apply font-mono text-xs leading-none px-2.5 py-2 rounded-lg border border-line;
+  }
+  .grid-paper {
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 31px, var(--c-line) 31px 32px),
+      repeating-linear-gradient(90deg, transparent 0 31px, var(--c-line) 31px 32px);
+  }
+}
+
+/* Hero load sequence */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+.rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 100ms);
+}
+@keyframes phone-in {
+  from {
+    opacity: 0;
+    transform: translateY(60px) rotate(6deg) scale(0.94);
+  }
+}
+.phone-in {
+  animation: phone-in 1.2s cubic-bezier(0.2, 0.8, 0.1, 1) 0.35s both;
+}
+
+/* Reels feed inside the hero phone */
+@keyframes reel {
+  0%, 22% { transform: translateY(0); }
+  33%, 55% { transform: translateY(-100%); }
+  66%, 88% { transform: translateY(-200%); }
+  100% { transform: translateY(-300%); }
+}
+.reel-feed {
+  animation: reel 12s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-8px); }
+}
+.float { animation: float 5s ease-in-out infinite; }
+.float-late { animation: float 6s ease-in-out 1.5s infinite; }
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c-ok) 55%, transparent); }
+  70% { box-shadow: 0 0 0 7px transparent; }
+}
+.live-dot { animation: pulse-dot 2s infinite; }
+
+/* Scroll reveal: content is visible by default; JS only adds a gentle slide. */
+.reveal { transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.1, 1), opacity 0.8s; }
+.reveal.pending { transform: translateY(28px); opacity: 0.001; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise, .phone-in, .reel-feed, .marquee, .float, .float-late, .live-dot { animation: none !important; }
+  .reveal.pending { transform: none; opacity: 1; }
+}

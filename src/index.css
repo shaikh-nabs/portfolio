@@ -153,3 +153,39 @@ h3 {
 .reveal.pending .branch-path {
   stroke-dashoffset: 220;
 }
+
+/* E-Netra direction check: turn toward the target, align, shutter unlocks. 7s loop. */
+@keyframes enetra-target {
+  0%, 12% { transform: translateX(46px); }
+  50%, 88% { transform: translateX(0); }
+  100% { transform: translateX(46px); }
+}
+@keyframes enetra-tape {
+  0%, 12% { transform: translateX(0); }
+  50%, 88% { transform: translateX(-46px); }
+  100% { transform: translateX(0); }
+}
+@keyframes enetra-off {
+  0%, 50% { opacity: 1; }
+  55%, 88% { opacity: 0; }
+  93%, 100% { opacity: 1; }
+}
+@keyframes enetra-on {
+  0%, 50% { opacity: 0; }
+  55%, 88% { opacity: 1; }
+  93%, 100% { opacity: 0; }
+}
+@keyframes enetra-shutter {
+  0%, 50% { background: rgba(255, 255, 255, 0.12); }
+  55%, 88% { background: #4ade80; }
+  93%, 100% { background: rgba(255, 255, 255, 0.12); }
+}
+.enetra-target { animation: enetra-target 7s cubic-bezier(0.5, 0, 0.3, 1) infinite; }
+.enetra-tape { animation: enetra-tape 7s cubic-bezier(0.5, 0, 0.3, 1) infinite; }
+.enetra-turn, .enetra-lock { animation: enetra-off 7s infinite; }
+.enetra-aligned { opacity: 0; animation: enetra-on 7s infinite; }
+.enetra-shutter { background: rgba(255, 255, 255, 0.12); animation: enetra-shutter 7s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .enetra-target, .enetra-tape, .enetra-turn, .enetra-lock, .enetra-aligned, .enetra-shutter { animation: none; }
+}

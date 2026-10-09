@@ -108,20 +108,40 @@ const play = (id) => `https://play.google.com/store/apps/details?id=${id}`
 
 // `icon`: drop a PNG into /public/apps/ and set e.g. icon: '/apps/propkee.png'.
 // Without one, a styled monogram tile is shown.
-export const featured = {
-  name: 'Propkee',
-  kicker: 'Featured · Real estate',
-  href: play('com.app.propkee'),
-  icon: null,
-  hue: 200,
-  description:
-    'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',
-  points: [
-    'Instagram-style vertical video feeds with smart caching, autoplay and dynamic aspect-ratio handling.',
-    'Agora Chat SDK, Branch.io deep linking, Mixpanel analytics and currency conversion.',
-  ],
-  stack: ['Flutter', 'GetX', 'Agora Chat', 'Branch.io', 'Mixpanel'],
-}
+// Big cards at the top of Projects, in order. `art` picks the illustration.
+export const featured = [
+  {
+    art: 'reels',
+    name: 'Propkee',
+    kicker: 'Featured · Real estate',
+    href: play('com.app.propkee'),
+    icon: null,
+    hue: 200,
+    description:
+      'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',
+    points: [
+      'Instagram-style vertical video feeds with smart caching, autoplay and dynamic aspect-ratio handling.',
+      'Agora Chat SDK, Branch.io deep linking, Mixpanel analytics and currency conversion.',
+    ],
+    stack: ['Flutter', 'GetX', 'Agora Chat', 'Branch.io', 'Mixpanel'],
+  },
+  {
+    art: 'compass',
+    name: 'E-Netra',
+    kicker: 'Featured · Forest monitoring',
+    href: play('com.app.enetra'),
+    icon: null,
+    hue: 140,
+    description:
+      'A Flutter forest-monitoring app for the State Forest Department. The backend turns satellite imagery into deforestation and encroachment alerts. The app sends each alert to field rangers, who visit the spot and collect geo-tagged evidence for review.',
+    points: [
+      'Sensor-fusion direction checking for evidence photos: GPS, compass and accelerometer confirm the camera faces the target site before the shutter unlocks, with smoothed heading, true-north correction, tilt limits and on-screen "turn left / right" guidance within a configurable angle tolerance.',
+      'Separate Ranger and DFO flows behind OTP login with reCAPTCHA and JWT sessions. Rangers receive and close alerts; DFOs review them and send officers out. FCM push notifications, in English and Hindi.',
+      'Works offline in forests with no signal. Alerts and evidence are stored on the device with Hive, WorkManager uploads them in the background once there is a connection, and geo-fencing makes sure evidence is captured at the actual alert location.',
+    ],
+    stack: ['Flutter', 'Sensor fusion', 'Platform channels', 'Hive', 'WorkManager', 'Geo-fencing', 'FCM', 'reCAPTCHA', 'JWT', 'EN / हिंदी'],
+  },
+]
 
 export const projects = [
   {
@@ -147,7 +167,6 @@ export const projects = [
 ]
 
 export const moreApps = [
-  { name: 'eNetra', note: 'Android', href: play('com.app.enetra'), icon: null, hue: 265 },
   { name: 'CCS Survey', note: 'Android', href: play('com.app.enetra_field_survey'), icon: null, hue: 175 },
   { name: 'The Most Ai', note: 'TV app', href: play('themost.tv'), icon: null, hue: 330 },
   { name: 'Tuskin Coffee', note: 'Android', href: play('com.app.tuskincoffee'), icon: null, hue: 25 },

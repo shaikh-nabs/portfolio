@@ -137,7 +137,7 @@ export const featured = [
     name: 'E-Netra',
     kicker: 'Featured · Forest monitoring',
     href: play('com.app.enetra'),
-    icon: null,
+    icon: '/apps/enetra.png',
     hue: 140,
     description:
       'A Flutter forest-monitoring app for the State Forest Department. The backend turns satellite imagery into deforestation and encroachment alerts. The app sends each alert to field rangers, who visit the spot and collect geo-tagged evidence for review.',

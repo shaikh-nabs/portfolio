@@ -33,7 +33,7 @@ export const releases = [
     sinceNote: 'including a 6-month internship',
     title: 'Flutter Developer',
     company: 'MonkHub Innovations',
-    scope: 'Android + iOS',
+    scope: 'Android, iOS, TV apps, Windows app',
     groups: [
       {
         type: 'Improved',
@@ -115,6 +115,7 @@ export const featured = [
     name: 'Propkee',
     kicker: 'Featured · Real estate',
     href: play('com.app.propkee'),
+    ios: 'https://apps.apple.com/in/app/propkee-global-real-estate/id6747972743',
     icon: '/apps/propkee.png',
     brand: '#C99A5B',
     // Play Store screenshots: [left, centre, right].
@@ -125,18 +126,21 @@ export const featured = [
     ],
     hue: 200,
     description:
-      'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',
+      'A production-scale, video-heavy Flutter app for real estate. Buyers discover properties through Instagram-style reels, explore listings on a map and talk to agents without leaving the app.',
     points: [
-      'Instagram-style vertical video feeds with smart caching, autoplay and dynamic aspect-ratio handling.',
-      'Agora Chat SDK, Branch.io deep linking, Mixpanel analytics and currency conversion.',
+      'Instagram-style vertical video feed with infinite scrolling. Smart caching, autoplay and dynamic aspect-ratio handling keep every swipe smooth, even on a heavy feed of property videos.',
+      'Offline-first: listings and media are cached on the device, so the app opens instantly and stays usable on a weak or missing connection.',
+      'Map view with property clustering. Nearby listings group into counts as you zoom out and split into individual pins as you zoom in.',
+      'Likes and shares on every reel, with Branch.io deep links that open the exact property. In-app buyer–seller chat on Agora Chat SDK, Mixpanel analytics and currency conversion.',
     ],
-    stack: ['Flutter', 'GetX', 'Agora Chat', 'Branch.io', 'Mixpanel'],
+    stack: ['Flutter', 'GetX', 'Video caching', 'Offline-first', 'Map clustering', 'Branch.io', 'Agora Chat', 'Mixpanel'],
   },
   {
     art: 'compass',
     name: 'E-Netra',
     kicker: 'Featured · Forest monitoring',
     href: play('com.app.enetra'),
+    ios: 'https://apps.apple.com/in/app/e-netra/id6780757015',
     icon: '/apps/enetra.png',
     hue: 140,
     description:

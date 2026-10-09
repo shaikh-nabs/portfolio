@@ -209,3 +209,59 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .enetra-target, .enetra-tape, .enetra-turn, .enetra-lock, .enetra-aligned, .enetra-shutter { animation: none; }
 }
+
+/* ---------- Dynamic Island navbar ---------- */
+.island {
+  width: 232px;
+  height: 44px;
+  border-radius: 22px;
+  transition:
+    width 0.6s cubic-bezier(0.34, 1.32, 0.64, 1),
+    height 0.6s cubic-bezier(0.34, 1.32, 0.64, 1),
+    border-radius 0.6s cubic-bezier(0.34, 1.32, 0.64, 1);
+}
+.island[data-open='true'] {
+  width: min(600px, calc(100vw - 24px));
+  height: var(--panel-h, 250px);
+  border-radius: 34px;
+}
+.island-compact { transition: opacity 0.2s, filter 0.2s; }
+.island[data-open='true'] .island-compact { opacity: 0; filter: blur(4px); pointer-events: none; }
+.island-panel {
+  width: min(600px, calc(100vw - 24px));
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.96) translateY(-8px);
+  transform-origin: top center;
+  pointer-events: none;
+  transition: opacity 0.25s, filter 0.3s, transform 0.45s cubic-bezier(0.34, 1.32, 0.64, 1);
+}
+.island[data-open='true'] .island-panel {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0.1s;
+}
+.island-tile { opacity: 0; transform: translateY(10px) scale(0.9); }
+.island[data-open='true'] .island-tile {
+  animation: tile-in 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: calc(var(--i) * 45ms + 140ms);
+}
+@keyframes tile-in {
+  to { opacity: 1; transform: none; }
+}
+.island-label { animation: label-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes label-in {
+  from { opacity: 0; transform: translateY(10px); filter: blur(3px); }
+}
+.island-bump { animation: island-bump 0.45s cubic-bezier(0.34, 1.5, 0.64, 1); }
+@keyframes island-bump {
+  40% { transform: scale(1.07, 1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .island, .island-panel, .island-compact { transition: none; }
+  .island-tile, .island[data-open='true'] .island-tile { animation: none; opacity: 1; transform: none; }
+  .island-label, .island-bump { animation: none; }
+}

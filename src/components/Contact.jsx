@@ -62,7 +62,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="mx-auto flex max-w-[1180px] flex-wrap justify-between gap-3 border-t border-line px-4 pt-7 pb-32 font-mono text-xs text-muted sm:px-6 md:pb-10">
+      <footer className="mx-auto flex max-w-[1180px] flex-wrap justify-between gap-3 border-t border-line px-4 pt-7 pb-10 font-mono text-xs text-muted sm:px-6">
         <span>© {new Date().getFullYear()} {profile.name} · Lucknow</span>
       </footer>
     </>

@@ -111,11 +111,18 @@ const play = (id) => `https://play.google.com/store/apps/details?id=${id}`
 // Big cards at the top of Projects, in order. `art` picks the illustration.
 export const featured = [
   {
-    art: 'reels',
+    art: 'shots',
     name: 'Propkee',
     kicker: 'Featured · Real estate',
     href: play('com.app.propkee'),
-    icon: 'https://play-lh.googleusercontent.com/Uv7oK5DTRawx2GhBAuIwhhcqjohB9NAjiCO-riq_FsCVnwWY5mfsn3glj7vZZoapuowVUITCgqbUbqAyEFAy4ys=w192-h192-rw',
+    icon: '/apps/propkee.png',
+    brand: '#C99A5B',
+    // Play Store screenshots: [left, centre, right].
+    shots: [
+      { src: '/apps/propkee-2.webp', alt: 'Property listing card with price, payment plan and contact buttons' },
+      { src: '/apps/propkee-3.webp', alt: 'Reels-style property video feed' },
+      { src: '/apps/propkee-4.webp', alt: 'Agent profile with property video bites' },
+    ],
     hue: 200,
     description:
       'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',

@@ -55,31 +55,37 @@ function PlayLink({ href, name, className = '' }) {
 }
 
 
-const screens = [
-  'linear-gradient(170deg,#2F6B4F,#12291F 60%,#D9B36C)',
-  'linear-gradient(160deg,#1E5B8C,#0E2A47 60%,#C47A3D)',
-  'linear-gradient(150deg,#6B3F8C,#1D1530 60%,#E07A5F)',
-]
+const asset = (path) => import.meta.env.BASE_URL + path.replace(/^\//, '')
 
-function ReelsArt() {
+// Real Play Store screenshots fanned out on grid paper, lit in the app's brand colour.
+function ShotsArt({ app }) {
+  const [left, centre, right] = app.shots
   return (
-    <div className="grid-paper relative flex h-full min-h-[340px] items-end justify-center gap-4 overflow-hidden pt-10 lg:min-h-[460px]">
-      <div className="absolute inset-0 bg-[radial-gradient(60%_70%_at_60%_30%,color-mix(in_srgb,var(--c-accent)_32%,transparent),transparent_70%)]" />
-      {screens.map((g, i) => (
-        <div
-          key={i}
-          className={`relative aspect-[9/19] rounded-[26px] bg-[#141B28] p-1.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,.55)] transition-transform duration-500 hover:-translate-y-3 ${
-            i === 1 ? 'w-[132px] translate-y-3 sm:w-[176px]' : 'w-[112px] translate-y-10 sm:w-[150px]'
-          }`}
-        >
-          <div className="relative h-full overflow-hidden rounded-[20px]" style={{ background: g }}>
-            <div className="absolute inset-x-3 bottom-4 grid gap-1.5">
-              <span className="h-2.5 w-2/3 rounded bg-white/80" />
-              <span className="h-2 w-1/2 rounded bg-white/45" />
-            </div>
-          </div>
-        </div>
-      ))}
+    <div className="grid-paper relative flex h-full min-h-[380px] items-center justify-center overflow-hidden px-4 py-12 lg:min-h-[480px]">
+      <div
+        className="absolute inset-0"
+        style={{ background: `radial-gradient(60% 65% at 50% 45%, color-mix(in srgb, ${app.brand} 38%, transparent), transparent 70%)` }}
+      />
+      <div className="relative flex items-center justify-center">
+        <img
+          src={asset(left.src)}
+          alt={left.alt}
+          loading="lazy"
+          className="relative z-0 -mr-10 w-[38%] max-w-[170px] -rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:-rotate-3"
+        />
+        <img
+          src={asset(centre.src)}
+          alt={centre.alt}
+          loading="lazy"
+          className="relative z-10 w-[48%] max-w-[230px] rounded-2xl border border-line shadow-[0_40px_80px_-25px_rgba(0,0,0,.7)] transition-transform duration-500 hover:-translate-y-2"
+        />
+        <img
+          src={asset(right.src)}
+          alt={right.alt}
+          loading="lazy"
+          className="relative z-0 -ml-10 w-[38%] max-w-[170px] rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:rotate-3"
+        />
+      </div>
     </div>
   )
 }
@@ -89,7 +95,7 @@ const tape = ['300', 'NW', '330', 'N', '30', 'NE', '60', 'E', '90', 'SE', '120']
 // E-Netra's evidence camera: the target slides into the reticle as the ranger turns, then the shutter unlocks.
 function CompassArt() {
   return (
-    <div className="grid-paper relative flex h-full min-h-[400px] items-center justify-center overflow-hidden py-10 lg:min-h-[520px]">
+    <div aria-hidden="true" className="grid-paper relative flex h-full min-h-[400px] items-center justify-center overflow-hidden py-10 lg:min-h-[520px]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_70%_at_45%_45%,color-mix(in_srgb,var(--c-ok)_26%,transparent),transparent_70%)]" />
 
       <div className="relative aspect-[9/19] w-[210px] rounded-[34px] bg-[#141B28] p-2 shadow-[0_40px_70px_-25px_rgba(0,0,0,.6)] sm:w-[232px]">
@@ -168,7 +174,7 @@ function CompassArt() {
   )
 }
 
-const arts = { reels: ReelsArt, compass: CompassArt }
+const arts = { shots: ShotsArt, compass: CompassArt }
 
 function FeaturedCard({ app, flip }) {
   const Art = arts[app.art]
@@ -211,8 +217,8 @@ function FeaturedCard({ app, flip }) {
           </a>
         </div>
       </div>
-      <div aria-hidden="true" className={flip ? 'lg:order-1' : ''}>
-        <Art />
+      <div className={flip ? 'lg:order-1' : ''}>
+        <Art app={app} />
       </div>
     </article>
   )

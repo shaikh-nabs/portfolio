@@ -141,7 +141,7 @@ h3 {
   html { scroll-behavior: auto; }
   .rise, .phone-in, .reel-feed, .marquee, .float, .float-late, .live-dot { animation: none !important; }
   .reveal.pending { transform: none; opacity: 1; }
-  .reveal.pending .branch-path { stroke-dashoffset: 0; }
+  .reveal.pending .branch-path { stroke-dashoffset: 0 !important; }
 }
 
 /* Branch graph draws itself in when the B.Tech entry scrolls into view. */

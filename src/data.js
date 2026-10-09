@@ -28,6 +28,9 @@ export const releases = [
     tag: 'latest',
     current: true,
     dates: 'Jan 2025 → now',
+    // Drives the live "x yr y mo of Flutter" badge.
+    since: '2025-01',
+    sinceNote: 'including a 6-month internship',
     title: 'Flutter Developer',
     company: 'MonkHub Innovations',
     scope: 'Android + iOS',
@@ -47,6 +50,21 @@ export const releases = [
           'Real-time video streaming with optimized media loading for smooth playback.',
         ],
       },
+    ],
+  },
+  // Jan 2023 → Jan 2025: back to school, drawn as a git branch off main.
+  {
+    branch: 'feat/btech-cse',
+    dates: 'Jan 2023 → Jan 2025',
+    title: 'B.Tech, Computer Science & Engineering',
+    company: 'BBD Northern India Institute of Technology',
+    scope: 'Lateral entry · 3-year program',
+    checkout: 'git checkout -b feat/btech-cse',
+    merge: 'git merge feat/btech-cse  →  v3.0.0',
+    items: [
+      'Paused releases to go back to school: lateral entry into B.Tech CSE, straight into second year after the IT diploma.',
+      'Two years of full-time computer science on top of the hands-on Android work.',
+      'Merged back into industry in Jan 2025, this time on Flutter.',
     ],
   },
   {
@@ -142,7 +160,7 @@ export const marquee = [
 
 export const education = [
   {
-    title: 'B.Tech, Computer Science & Engineering',
+    title: 'B.Tech, Computer Science & Engineering (lateral entry)',
     where: 'Babu Banarasi Das Northern India Institute of Technology',
     meta: '2022–2026 · CGPA 7.5',
   },

@@ -62,3 +62,48 @@ export function useClock(timeZone) {
   }, [])
   return time
 }
+
+// Fraction of the page scrolled, 0 → 1.
+export function useScrollProgress() {
+  const [p, setP] = useState(0)
+  useEffect(() => {
+    let raf = 0
+    const read = () => {
+      raf = 0
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      setP(max > 0 ? Math.min(1, window.scrollY / max) : 0)
+    }
+    const onScroll = () => raf || (raf = requestAnimationFrame(read))
+    read()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
+  return p
+}
+
+// Real frames per second, sampled from requestAnimationFrame every half second.
+export function useFps() {
+  const [fps, setFps] = useState(60)
+  useEffect(() => {
+    let frames = 0
+    let last = performance.now()
+    let raf
+    const tick = (now) => {
+      frames++
+      if (now - last >= 500) {
+        setFps(Math.round((frames * 1000) / (now - last)))
+        frames = 0
+        last = now
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+  return fps
+}

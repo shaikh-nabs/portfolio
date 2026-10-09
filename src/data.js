@@ -115,6 +115,7 @@ export const featured = [
     name: 'Propkee',
     kicker: 'Featured · Real estate',
     href: play('com.app.propkee'),
+    ios: 'https://apps.apple.com/in/app/propkee-global-real-estate/id6747972743',
     icon: '/apps/propkee.png',
     brand: '#C99A5B',
     // Play Store screenshots: [left, centre, right].
@@ -139,6 +140,7 @@ export const featured = [
     name: 'E-Netra',
     kicker: 'Featured · Forest monitoring',
     href: play('com.app.enetra'),
+    ios: 'https://apps.apple.com/in/app/e-netra/id6780757015',
     icon: '/apps/enetra.png',
     hue: 140,
     description:

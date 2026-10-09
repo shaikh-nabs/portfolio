@@ -204,17 +204,31 @@ function FeaturedCard({ app, flip }) {
             </span>
           ))}
         </div>
-        <div className="mt-auto pt-3">
+        <div className="mt-auto flex flex-wrap gap-3 pt-3">
           <a
             href={app.href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${app.name} on Google Play`}
             className="group inline-flex items-center gap-2.5 rounded-xl bg-accent px-5 py-3.5 text-[15px] font-semibold text-accent-ink transition-transform hover:-translate-y-0.5"
           >
             <Icon name="play" className="size-4" />
-            Get it on Google Play
+            Google Play
             <Icon name="arrow" className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
+          {app.ios && (
+            <a
+              href={app.ios}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${app.name} on the App Store`}
+              className="group inline-flex items-center gap-2.5 rounded-xl border border-line px-5 py-3.5 text-[15px] font-semibold transition-[border-color,transform] hover:-translate-y-0.5 hover:border-accent"
+            >
+              <Icon name="apple" className="size-4" />
+              App Store
+              <Icon name="arrow" className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          )}
         </div>
       </div>
       <div className={flip ? 'lg:order-1' : ''}>

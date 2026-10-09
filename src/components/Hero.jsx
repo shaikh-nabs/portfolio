@@ -21,22 +21,16 @@ export default function Hero() {
             <span className="rise block" style={{ '--i': 1 }}>
               {profile.name}
             </span>
-            <span className="rise block font-normal tracking-[-0.02em]" style={{ '--i': 2 }}>
-              builds apps that
-            </span>
-            <span className="rise block text-accent" style={{ '--i': 3 }}>
-              hold 60fps.
-            </span>
           </h1>
 
-          <p className="rise mb-8 max-w-[34em] text-[clamp(17px,1.6vw,20px)] leading-relaxed text-muted" style={{ '--i': 4 }}>
+          <p className="rise mb-8 max-w-[34em] text-[clamp(17px,1.6vw,20px)] leading-relaxed text-muted" style={{ '--i': 2 }}>
             Flutter developer with roots in native Android, shipping production apps since{' '}
             <strong className="font-medium text-ink">2021</strong>. Most recently a{' '}
             <strong className="font-medium text-ink">50% performance gain</strong> on a real-estate app with reels, chat and
             deep links.
           </p>
 
-          <div className="rise flex flex-wrap items-center gap-3" style={{ '--i': 5 }}>
+          <div className="rise flex flex-wrap items-center gap-3" style={{ '--i': 3 }}>
             <a
               href="#projects"
               className="group inline-flex items-center gap-2.5 rounded-xl bg-ink px-5 py-3.5 text-[15px] font-semibold text-bg transition-transform hover:-translate-y-0.5"
@@ -51,7 +45,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="rise mt-7 flex flex-wrap gap-5" style={{ '--i': 6 }}>
+          <div className="rise mt-7 flex flex-wrap gap-5" style={{ '--i': 4 }}>
             {profile.socials.map((s) => (
               <a
                 key={s.label}

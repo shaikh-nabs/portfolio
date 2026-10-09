@@ -33,7 +33,7 @@ export const releases = [
     sinceNote: 'including a 6-month internship',
     title: 'Flutter Developer',
     company: 'MonkHub Innovations',
-    scope: 'Android + iOS',
+    scope: 'Android, iOS, TV apps, Windows app',
     groups: [
       {
         type: 'Improved',

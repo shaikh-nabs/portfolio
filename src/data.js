@@ -106,8 +106,8 @@ export const releases = [
 
 const play = (id) => `https://play.google.com/store/apps/details?id=${id}`
 
-// `icon`: drop a PNG into /public/apps/ and set e.g. icon: '/apps/propkee.png'.
-// Without one, a styled monogram tile is shown.
+// `icon`: a full image URL (e.g. the Play Store icon), or a PNG dropped into /public/apps/
+// referenced as '/apps/propkee.png'. Without one, or if it fails to load, a monogram tile is shown.
 // Big cards at the top of Projects, in order. `art` picks the illustration.
 export const featured = [
   {
@@ -115,7 +115,7 @@ export const featured = [
     name: 'Propkee',
     kicker: 'Featured · Real estate',
     href: play('com.app.propkee'),
-    icon: null,
+    icon: 'https://play-lh.googleusercontent.com/Uv7oK5DTRawx2GhBAuIwhhcqjohB9NAjiCO-riq_FsCVnwWY5mfsn3glj7vZZoapuowVUITCgqbUbqAyEFAy4ys=w192-h192-rw',
     hue: 200,
     description:
       'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',

@@ -1,13 +1,24 @@
+import { useState } from 'react'
 import { featured, projects, moreApps } from '../data'
 import { Icon } from './Icons'
 import Section from './Section'
 
-// Real icon if one is provided in data.js, otherwise a tinted monogram tile.
+// Real icon if one is provided in data.js, otherwise (or if it fails to load) a tinted monogram tile.
 function AppIcon({ app, size = 'size-14', text = 'text-xl' }) {
-  if (app.icon) {
+  const [failed, setFailed] = useState(false)
+  if (app.icon && !failed) {
     // Paths like '/apps/x.png' resolve against the deploy base (e.g. /portfolio/ on GitHub Pages).
     const src = app.icon.startsWith('/') ? import.meta.env.BASE_URL + app.icon.slice(1) : app.icon
-    return <img src={src} alt="" className={`${size} rounded-[22%] object-cover`} />
+    return (
+      <img
+        src={src}
+        alt=""
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={() => setFailed(true)}
+        className={`${size} shrink-0 rounded-[22%] object-cover shadow-[0_6px_16px_-6px_rgba(0,0,0,.4)]`}
+      />
+    )
   }
   const initials = app.name
     .replace(/&/g, '')

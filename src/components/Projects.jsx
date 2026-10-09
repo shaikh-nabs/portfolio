@@ -4,7 +4,11 @@ import Section from './Section'
 
 // Real icon if one is provided in data.js, otherwise a tinted monogram tile.
 function AppIcon({ app, size = 'size-14', text = 'text-xl' }) {
-  if (app.icon) return <img src={app.icon} alt="" className={`${size} rounded-[22%] object-cover`} />
+  if (app.icon) {
+    // Paths like '/apps/x.png' resolve against the deploy base (e.g. /portfolio/ on GitHub Pages).
+    const src = app.icon.startsWith('/') ? import.meta.env.BASE_URL + app.icon.slice(1) : app.icon
+    return <img src={src} alt="" className={`${size} rounded-[22%] object-cover`} />
+  }
   const initials = app.name
     .replace(/&/g, '')
     .split(/\s+/)

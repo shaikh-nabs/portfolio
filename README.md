@@ -27,4 +27,4 @@ Each app shows a coloured monogram tile until you add its icon:
 The build is a static site, so any static host works:
 
 - **Vercel / Netlify:** import the repo. The framework preset is Vite, the build command is `npm run build` and the output directory is `dist`.
-- **GitHub Pages:** set `base: '/portfolio/'` in `vite.config.js`, then publish `dist/`.
+- **GitHub Pages:** `.github/workflows/deploy.yml` builds and deploys on every push to `main`. One-time setup: in the repo go to **Settings → Pages** and set **Source** to **GitHub Actions**. The site is then served at `https://shaikh-nabs.github.io/portfolio/`.

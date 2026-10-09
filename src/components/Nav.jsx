@@ -103,7 +103,7 @@ export default function Nav() {
           href="#contact"
           className="ml-auto hidden rounded-full border border-line bg-bg/70 px-4 py-2.5 text-sm leading-none font-semibold backdrop-blur transition-colors hover:border-accent md:block"
         >
-          Hire me
+          Contact
         </a>
       </div>
 
@@ -194,7 +194,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="rounded-full bg-[var(--c-accent)] px-4 py-2.5 text-sm leading-none font-semibold text-[var(--c-accent-ink)]"
             >
-              Hire me
+              Contact
             </a>
           </div>
         </nav>

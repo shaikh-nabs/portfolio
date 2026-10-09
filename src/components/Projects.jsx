@@ -71,19 +71,19 @@ function ShotsArt({ app }) {
           src={asset(left.src)}
           alt={left.alt}
           loading="lazy"
-          className="relative z-0 -mr-10 w-[38%] max-w-[170px] -rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:-rotate-3"
+          className="relative z-0 -mr-10 w-[38%] max-w-[205px] -rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:-rotate-3"
         />
         <img
           src={asset(centre.src)}
           alt={centre.alt}
           loading="lazy"
-          className="relative z-10 w-[48%] max-w-[230px] rounded-2xl border border-line shadow-[0_40px_80px_-25px_rgba(0,0,0,.7)] transition-transform duration-500 hover:-translate-y-2"
+          className="relative z-10 w-[48%] max-w-[280px] rounded-2xl border border-line shadow-[0_40px_80px_-25px_rgba(0,0,0,.7)] transition-transform duration-500 hover:-translate-y-2"
         />
         <img
           src={asset(right.src)}
           alt={right.alt}
           loading="lazy"
-          className="relative z-0 -ml-10 w-[38%] max-w-[170px] rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:rotate-3"
+          className="relative z-0 -ml-10 w-[38%] max-w-[205px] rotate-6 rounded-2xl border border-line shadow-[0_30px_60px_-25px_rgba(0,0,0,.6)] transition-transform duration-500 hover:-translate-y-2 hover:rotate-3"
         />
       </div>
     </div>

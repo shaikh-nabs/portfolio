@@ -125,12 +125,14 @@ export const featured = [
     ],
     hue: 200,
     description:
-      'A production-scale Flutter app for property discovery, reels-style media and buyer–seller communication.',
+      'A production-scale, video-heavy Flutter app for real estate. Buyers discover properties through Instagram-style reels, explore listings on a map and talk to agents without leaving the app.',
     points: [
-      'Instagram-style vertical video feeds with smart caching, autoplay and dynamic aspect-ratio handling.',
-      'Agora Chat SDK, Branch.io deep linking, Mixpanel analytics and currency conversion.',
+      'Instagram-style vertical video feed with infinite scrolling. Smart caching, autoplay and dynamic aspect-ratio handling keep every swipe smooth, even on a heavy feed of property videos.',
+      'Offline-first: listings and media are cached on the device, so the app opens instantly and stays usable on a weak or missing connection.',
+      'Map view with property clustering. Nearby listings group into counts as you zoom out and split into individual pins as you zoom in.',
+      'Likes and shares on every reel, with Branch.io deep links that open the exact property. In-app buyer–seller chat on Agora Chat SDK, Mixpanel analytics and currency conversion.',
     ],
-    stack: ['Flutter', 'GetX', 'Agora Chat', 'Branch.io', 'Mixpanel'],
+    stack: ['Flutter', 'GetX', 'Video caching', 'Offline-first', 'Map clustering', 'Branch.io', 'Agora Chat', 'Mixpanel'],
   },
   {
     art: 'compass',

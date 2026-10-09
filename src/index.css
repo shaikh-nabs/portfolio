@@ -103,16 +103,36 @@ h3 {
   animation: phone-in 1.2s cubic-bezier(0.2, 0.8, 0.1, 1) 0.35s both;
 }
 
-/* Reels feed inside the hero phone */
+/* Reels feed inside the hero phone: each reel holds ~3.2s, then swipes up (4s per reel). */
 @keyframes reel {
-  0%, 22% { transform: translateY(0); }
-  33%, 55% { transform: translateY(-100%); }
-  66%, 88% { transform: translateY(-200%); }
+  0%, 27% { transform: translateY(0); }
+  33.33%, 60% { transform: translateY(-100%); }
+  66.67%, 93% { transform: translateY(-200%); }
   100% { transform: translateY(-300%); }
 }
 .reel-feed {
   animation: reel 12s cubic-bezier(0.7, 0, 0.2, 1) infinite;
 }
+@keyframes reel-progress {
+  from { width: 0; }
+  80%, to { width: 100%; }
+}
+.reel-progress { width: 100%; animation: reel-progress 4s linear infinite; }
+/* slow Ken Burns zoom on each scene */
+@keyframes kb {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+.kb { transform-origin: 50% 40%; animation: kb 6s ease-in-out infinite alternate; }
+/* double-tap like on the second reel (visible 33%–60% of the loop) */
+@keyframes heart-pop {
+  0%, 38% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  41% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  44% { transform: translate(-50%, -50%) scale(0.95); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  55%, 100% { opacity: 0; transform: translate(-50%, -60%) scale(1); }
+}
+.heart-pop { opacity: 0; animation: heart-pop 12s infinite; }
 
 @keyframes marquee {
   to { transform: translateX(-50%); }
@@ -139,7 +159,7 @@ h3 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rise, .phone-in, .reel-feed, .marquee, .float, .float-late, .live-dot { animation: none !important; }
+  .rise, .phone-in, .reel-feed, .reel-progress, .kb, .heart-pop, .marquee, .float, .float-late, .live-dot { animation: none !important; }
   .reveal.pending { transform: none; opacity: 1; }
   .reveal.pending .branch-path { stroke-dashoffset: 0 !important; }
 }

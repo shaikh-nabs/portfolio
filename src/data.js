@@ -55,7 +55,7 @@ export const releases = [
   // Jan 2023 → Jan 2025: back to school, drawn as a git branch off main.
   {
     branch: 'feat/btech-cse',
-    dates: 'Jul 2022 → Jul 2025',
+    dates: 'Nov 2022 → Jul 2025',
     title: 'B.Tech, Computer Science & Engineering',
     company: 'BBD Northern India Institute of Technology',
     scope: 'Lateral entry · 3-year program',
@@ -162,7 +162,7 @@ export const education = [
   {
     title: 'B.Tech, Computer Science & Engineering (lateral entry)',
     where: 'Babu Banarasi Das Northern India Institute of Technology',
-    meta: '2022–2026 · CGPA 7.5',
+    meta: '2022–2025 · CGPA 7.5',
   },
   { title: 'Diploma, Information Technology', where: 'Government Polytechnic Lucknow', meta: '2019–2022 · 77%' },
 ]

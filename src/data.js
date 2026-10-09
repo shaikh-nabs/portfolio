@@ -63,7 +63,7 @@ export const releases = [
     merge: 'git merge feat/btech-cse  →  v3.0.0',
     items: [
       'Paused releases to go back to school: lateral entry into B.Tech CSE, straight into second year after the IT diploma.',
-      'Two years of full-time computer science on top of the hands-on Android work.',
+      'Three years of full-time computer science on top of the hands-on Android work.',
       'Merged back into industry in Jan 2025, this time on Flutter.',
     ],
   },

@@ -36,7 +36,7 @@ export default function Stack() {
             <span className="ml-2">pubspec.yaml</span>
           </div>
           <pre className="overflow-x-auto px-6 py-5 font-mono text-[13.5px] leading-[1.8] sm:text-sm">
-            <K>name</K>: mohd_nabeel{'\n'}
+            <K>name</K>: shaikh_nabeel{'\n'}
             <K>description</K>: Flutter developer, Lucknow{'\n'}
             <K>version</K>: 3.0.0<C>+2025</C>
             {'\n\n'}

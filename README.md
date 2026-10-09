@@ -1,6 +1,6 @@
 # nabeel.dev
 
-Personal portfolio of **Mohd Nabeel**, Flutter developer. Single-page site built with React, Vite and Tailwind CSS v4.
+Personal portfolio of **Shaikh Nabeel**, Flutter developer. Single-page site built with React, Vite and Tailwind CSS v4.
 
 ## Run locally
 

@@ -1,7 +1,7 @@
 // All portfolio content lives here. Edit this file to update the site.
 
 export const profile = {
-  name: 'Mohd Nabeel',
+  name: 'Shaikh Nabeel',
   role: 'Flutter Developer',
   location: 'Lucknow, India',
   email: 'snabeel130@gmail.com',
